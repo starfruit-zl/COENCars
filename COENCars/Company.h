@@ -8,7 +8,7 @@ using namespace std;
 #define COMPANY
 class Company {
 private:
-	Car cars[1000];
+	Car** cars;
 
 public:
 
