@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="COENCars.cpp" />
+    <ClCompile Include="Company.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Car.h" />
+    <ClInclude Include="Company.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

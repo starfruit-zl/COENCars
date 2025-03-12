@@ -4,6 +4,9 @@ using namespace std;
 #include <string>
 #include <iostream>
 
+#ifndef CAR
+#define CAR
+
 class Car {
 
 private:
@@ -42,3 +45,4 @@ public:
 	virtual void print();
 };
 
+#endif // CAR
