@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="COENCars.cpp" />
+    <ClCompile Include="TestCar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Car.h" />
