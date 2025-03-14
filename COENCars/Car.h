@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef CAR
+#define CAR
+
 using namespace std;
 #include <string>
 #include <iostream>
@@ -7,6 +10,8 @@ using namespace std;
 class Car {
 
 private:
+	static int idManager;
+
 	int id;
 
 	std::string type;
@@ -14,9 +19,10 @@ private:
 	bool isCarAvailable;
 
 public:
-	Car(int id1, std::string type1, bool IsCarAvailable);
+	Car(std::string type1, bool IsCarAvailable);
+	Car();
 
-	void setID(int id1);
+	//no set for ID, as it is managed by the system
 	int getID();
 
 	void setType(std::string type1);
@@ -31,14 +37,18 @@ public:
 class StandardCar : public Car{
 
 public:
-	StandardCar(int id1, std::string type1, bool IsCarAvailable);
+	StandardCar(std::string type1, bool IsCarAvailable);
+	StandardCar();
 	virtual void print();
 };
+
 
 class LuxuryCar : public Car {
 
 public:
-	LuxuryCar(int id1, std::string type1, bool IsCarAvailable);
+	LuxuryCar(std::string type1, bool IsCarAvailable);
+	LuxuryCar();
 	virtual void print();
 };
 
+#endif

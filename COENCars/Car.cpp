@@ -1,12 +1,20 @@
 #include "Car.h"
 using namespace std;
 
-Car::Car(int id1, std::string type1, bool IsCarAvailable) : id(id1), type(type1), isCarAvailable(IsCarAvailable) {}
+int Car::idManager = 0;
 
-void Car::setID(int id1) {
-	id = id1;
-	return;
+Car::Car(std::string type1, bool IsCarAvailable) : type(type1), isCarAvailable(IsCarAvailable) {
+	id = idManager++;
 }
+//add idManager here too
+
+Car::Car() {
+	id = idManager++;
+	type = {};
+	isCarAvailable = false;
+}
+
+//No set for ID, as it is managed and controlled by the system.
 
 int Car::getID() {
 	return id;
@@ -36,16 +44,20 @@ void Car::print() {
 	else std::cout << "No";
 }
 
-StandardCar::StandardCar(int id1, std::string type1, bool IsCarAvailable) : Car(id1, type1, IsCarAvailable) {}
+StandardCar::StandardCar(std::string type1, bool IsCarAvailable) : Car(type1, IsCarAvailable) {}
+
+StandardCar::StandardCar() : Car() {};
 
 void StandardCar::print(){
-    cout << "\n\nStandard Car:\n";
+    cout << "\n\nStandard Car:";
     Car::print();
 }
 
-LuxuryCar::LuxuryCar(int id1, std::string type1, bool IsCarAvailable) : Car(id1, type1, IsCarAvailable) {}
+LuxuryCar::LuxuryCar(std::string type1, bool IsCarAvailable) : Car(type1, IsCarAvailable) {}
+
+LuxuryCar::LuxuryCar() : Car() {};
 
 void LuxuryCar::print() {
-	std::cout << "\n\nLuxury Car: \n";
+	std::cout << "\n\nLuxury Car:";
 	Car::print();
 }
