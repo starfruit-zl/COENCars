@@ -20,7 +20,15 @@ private:
 public:
 	Customer();
 	Customer(int, string, string, string);
-
+	int getId();
+	string getName();
+	void setName(string);
+	string getAdress();
+	void setAdress(string);
+	string getPhoneNum();
+	void setPhoneNum(string);
+	int getRentedNum();
+	void printCarsRented();
 };
 
 #endif // !CUSTOMER

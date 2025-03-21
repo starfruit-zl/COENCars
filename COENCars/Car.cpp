@@ -1,7 +1,7 @@
 #include "Car.h"
 using namespace std;
 
-int Car::idManager = 0;
+static int Car::idManager = 0;
 
 Car::Car(std::string type1, bool IsCarAvailable) : type(type1), isCarAvailable(IsCarAvailable) {
 	id = idManager++;
