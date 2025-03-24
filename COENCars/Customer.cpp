@@ -8,7 +8,7 @@ Customer::Customer() {
 	name = {};
 	address = {};
 	phoneNum = {};
-	carsRented = new Car*[1000];
+	carsRented = new Car * [1000];
 	rentedNum = 0;
 }
 
