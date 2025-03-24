@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef CAR
-#define CAR
-
 using namespace std;
 #include <string>
 #include <iostream>
