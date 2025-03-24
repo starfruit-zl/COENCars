@@ -10,6 +10,7 @@ using namespace std;
 
 class Customer {
 private:
+	static int idManager;
 	int id;
 	string name;
 	string address;
@@ -19,8 +20,28 @@ private:
 
 public:
 	Customer();
-	Customer(int, string, string, string);
-
+	Customer(string, string, string);
+	int getId();
+	string getName();
+	void setName(string);
+	string getAddress();
+	void setAddress(string);
+	string getPhoneNum();
+	void setPhoneNum(string);
+	int getRentedNum();
+	virtual void printCarsRented();
 };
 
+class RegularCustomer : Customer {
+public:
+	RegularCustomer();
+	RegularCustomer(string, string, string);
+	virtual void printCarsRented();
+};
+
+class CorporateCustomer : Customer {
+	CorporateCustomer();
+	CorporateCustomer(string, string, string);
+	virtual void printCarsRented();
+};
 #endif // !CUSTOMER
