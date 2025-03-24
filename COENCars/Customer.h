@@ -21,6 +21,7 @@ private:
 public:
 	Customer();
 	Customer(string, string, string);
+	~Customer();
 	int getId();
 	string getName();
 	void setName(string);
@@ -29,6 +30,8 @@ public:
 	string getPhoneNum();
 	void setPhoneNum(string);
 	int getRentedNum();
+	void addCar(Car*);
+	void removeCar(int);
 	virtual void printCarsRented();
 };
 

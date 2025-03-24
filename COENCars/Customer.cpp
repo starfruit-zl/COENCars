@@ -21,6 +21,11 @@ Customer::Customer(string Name, string Address, string PhoneNum) {
 	rentedNum = 0;
 }
 
+Customer::~Customer() {
+	delete[] carsRented;
+	carsRented = nullptr;
+}
+
 int Customer::getId() {
 	return id;
 }
@@ -53,6 +58,24 @@ void Customer::setPhoneNum(string Phone) {
 
 int Customer::getRentedNum() {
 	return rentedNum;
+}
+
+void Customer::addCar(Car* newCar) {
+	carsRented[rentedNum++] = newCar;
+}
+
+void Customer::removeCar(int ID) {
+	for (int i(0); i < rentedNum; i++) {
+		if (carsRented[i]->getID() == ID) {
+			for (int j(i); j < rentedNum; j++) {
+				carsRented[j] = carsRented[j + 1];
+			}
+			cout << "\nCar with ID: " << ID << ", removed from " << name << "'s rented cars";
+			return;
+		}
+	}
+	cout << "\nCould not remove car, ID not found!";
+	return;
 }
 
 void Customer::printCarsRented() {
