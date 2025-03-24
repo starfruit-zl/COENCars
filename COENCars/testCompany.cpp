@@ -34,8 +34,9 @@ void testCompany(Company obj, string name, Car** cars, int amount, int carid){
 		}
 	}
 	if (amount != obj.getAmount()) std::cout << "\nError: getAmount mismatch!";
-
+	std::cout.setstate(std::ios_base::failbit); //disable the output of the ID, since it won't exist for long, and not informative for test.
 	obj.addCar(new StandardCar("MINI Cooper", true));
+	std::cout.clear();
 	if (obj.getCar(carid)->getType() != "MINI Cooper") std::cout << "\nError: addCar mismatch!";
 	obj.removeCar(carid);
 	if (obj.getAmount() != amount) std::cout << "\nError: removeCar mismatch!";

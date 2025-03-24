@@ -61,7 +61,7 @@ void Company::addCar() {
 
 void Company::addCar(Car* newCar) {
 	cars[amountCars++] = newCar;
-
+	std::cout << "\nThe new car has been registered with ID: " << newCar->getID();
 	return;
 }
 
