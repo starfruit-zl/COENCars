@@ -130,7 +130,6 @@
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="COENCars.cpp" />
     <ClCompile Include="Customer.cpp" />
-    <ClCompile Include="testCompany.cpp" />
     <ClCompile Include="Company.cpp" />
   </ItemGroup>
   <ItemGroup>
