@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Customer.h"
+#include "Company.h"
 
 int main()
 {

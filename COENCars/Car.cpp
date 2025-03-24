@@ -20,13 +20,13 @@ int Car::getID() {
 	return id;
 }
 
-void Car::setType(std::string type1){
-    type = type1;
+void Car::setType(std::string type1) {
+	type = type1;
 	return;
 }
 
-std::string Car::getType(){
-    return type;
+std::string Car::getType() {
+	return type;
 }
 
 void Car::setAvailability(bool availability) {
@@ -48,9 +48,9 @@ StandardCar::StandardCar(std::string type1, bool IsCarAvailable) : Car(type1, Is
 
 StandardCar::StandardCar() : Car() {};
 
-void StandardCar::print(){
-    cout << "\n\nStandard Car:";
-    Car::print();
+void StandardCar::print() {
+	cout << "\n\nStandard Car:";
+	Car::print();
 }
 
 LuxuryCar::LuxuryCar(std::string type1, bool IsCarAvailable) : Car(type1, IsCarAvailable) {}

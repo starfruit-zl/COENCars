@@ -26,12 +26,12 @@ public:
 	Car* getCar();
 	Car* getCar(int);
 	void removeCar(); //uses getCar() to find.
-    void removeCar(int);
+	void removeCar(int);
 	void printCar();
 	void printCar(int);
 	void printAllCars();
 
-	
+
 	//customer interactions?
 };
 

@@ -8,7 +8,7 @@ using namespace std;
 #define CAR
 
 class Car {
-	
+
 private:
 	static int idManager;
 
@@ -34,7 +34,7 @@ public:
 	virtual void print();
 };
 
-class StandardCar : public Car{
+class StandardCar : public Car {
 
 public:
 	StandardCar(std::string type1, bool IsCarAvailable);

@@ -8,7 +8,7 @@ Customer::Customer() {
 	name = {};
 	address = {};
 	phoneNum = {};
-	carsRented = new Car*[1000];
+	carsRented = new Car * [1000];
 	rentedNum = 0;
 }
 
@@ -89,18 +89,18 @@ void Customer::printCarsRented() {
 	return;
 }
 
-RegularCustomer::RegularCustomer() : Customer(){}
+RegularCustomer::RegularCustomer() : Customer() {}
 
-RegularCustomer::RegularCustomer(string Name, string Address, string PhoneNum) : Customer(Name, Address, PhoneNum){}
+RegularCustomer::RegularCustomer(string Name, string Address, string PhoneNum) : Customer(Name, Address, PhoneNum) {}
 
 void RegularCustomer::printCarsRented() {
 	cout << "\nRegular Customer " << Customer::getName() << " rented cars:\n";
 	Customer::printCarsRented();
 }
 
-CorporateCustomer::CorporateCustomer() : Customer(){}
+CorporateCustomer::CorporateCustomer() : Customer() {}
 
-CorporateCustomer::CorporateCustomer(string Name, string Address, string PhoneNum) : Customer(Name, Address, PhoneNum){}
+CorporateCustomer::CorporateCustomer(string Name, string Address, string PhoneNum) : Customer(Name, Address, PhoneNum) {}
 
 void CorporateCustomer::printCarsRented() {
 	cout << "\nCorporate Customer " << Customer::getName() << " cars rented:\n";
