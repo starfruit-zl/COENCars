@@ -10,6 +10,7 @@ using namespace std;
 
 class Customer {
 private:
+	static int idManager;
 	int id;
 	string name;
 	string address;
