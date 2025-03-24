@@ -1,7 +1,7 @@
 #include "Customer.h"
 using namespace std;
 
-static int idManager(1);
+int Customer::idManager(1);
 
 Customer::Customer() {
 	id = idManager++;
