@@ -2,7 +2,7 @@
 #include "Company.h"
 #include "Car.h"
 
-void testCompany(Company, string, Car**, int, int);
+void testCompany(Company&, string, Car**, int, int); //Company must be by reference, as if not destructor is called deleting shared cars pointer.
 
 int main() {
 	Car** cars = new Car * [1000];
@@ -23,7 +23,7 @@ int main() {
 	return 0;
 }
 
-void testCompany(Company obj, string name, Car** cars, int amount, int carid){
+void testCompany(Company& obj, string name, Car** cars, int amount, int carid){
 	if (name != obj.getName()) std::cout << "\nError: getName mismatch";
 	if (amount != 0) {
 		for (int i = 0; i < amount-1; i++) {

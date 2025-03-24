@@ -30,6 +30,12 @@ Company::Company(string name1, Car** cars1, int ammountCars1){
 	amountCars = ammountCars1;
 }
 
+Company::~Company() {
+	delete[] cars;
+	cars = nullptr;
+	std::cout << "\nDestructor called";
+}
+
 void Company::setName(string name1) {
 	name = name1;
 

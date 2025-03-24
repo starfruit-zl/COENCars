@@ -17,6 +17,7 @@ private:
 public:
 	Company(string);
 	Company(string, Car**, int);
+	~Company();
 	void setName(string);
 	string getName();
 	int getAmount();
