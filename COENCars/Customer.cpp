@@ -1,10 +1,10 @@
 #include "Customer.h"
 using namespace std;
 
-static int ids(1);
+static int idManager(1);
 
 Customer::Customer() {
-	id = ids++;
+	id = idManager++;
 	name = {};
 	address = {};
 	phoneNum = {};
@@ -13,7 +13,7 @@ Customer::Customer() {
 }
 
 Customer::Customer(string Name, string Address, string PhoneNum) {
-	id = ids++;
+	id = idManager++;
 	name = Name;
 	address = Address;
 	phoneNum = PhoneNum;
