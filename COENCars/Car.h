@@ -8,7 +8,7 @@ using namespace std;
 #define CAR
 
 class Car {
-
+	
 private:
 	static int idManager;
 
