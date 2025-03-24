@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="COENCars.cpp" />
-    <ClCompile Include="Company.cpp" />
     <ClCompile Include="Customer.cpp" />
   </ItemGroup>
   <ItemGroup>
