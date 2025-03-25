@@ -2,6 +2,7 @@
 
 #include <string>
 #include "Car.h"
+#include "Customer.h"
 using namespace std;
 
 #ifndef COMPANY
@@ -10,17 +11,20 @@ class Company {
 private:
 	string name;
 	Car** cars;
+	Customer** customers;
 	int amountCars;
+	int amountCustomers;
 	int searchCar(int);
+	int searchCustomer(int);
 	string recieveString(string);
 	int recieveInt(string message);
 public:
 	Company(string);
-	Company(string, Car**, int);
 	~Company();
 	void setName(string);
 	string getName();
-	int getAmount();
+	int getAmountCars();
+	int getAmountCustomers();
 	void addCar(); //initializes car.
 	void addCar(Car*);
 	Car* getCar();
@@ -30,7 +34,10 @@ public:
 	void printCar();
 	void printCar(int);
 	void printAllCars();
-
+	void printCustomer(int);
+	void printAllCustomers();
+	void rentCar();
+	void rentCar(Car*,Customer*);
 
 	//customer interactions?
 };

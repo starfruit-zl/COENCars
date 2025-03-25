@@ -21,24 +21,21 @@ string Company::recieveString(string message) {
 Company::Company(string name1) {
 	name = name1;
 	cars = new Car * [1000];
+	customers = new Customer * [1000];
+	amountCustomers = 0;
 	amountCars = 0;
-}
-
-Company::Company(string name1, Car** cars1, int ammountCars1) {
-	name = name1;
-	cars = cars1;
-	amountCars = ammountCars1;
 }
 
 Company::~Company() {
 	delete[] cars;
+	delete[] customers;
 	cars = nullptr;
+	customers = nullptr;
 	std::cout << "\nDestructor called";
 }
 
 void Company::setName(string name1) {
 	name = name1;
-
 	return;
 }
 
@@ -46,8 +43,12 @@ string Company::getName() {
 	return name;
 }
 
-int Company::getAmount() {
+int Company::getAmountCars() {
 	return amountCars;
+}
+
+int Company::getAmountCustomers() {
+	return amountCustomers;
 }
 
 void Company::addCar() {
@@ -101,6 +102,13 @@ void Company::removeCar(int ID) {
 	getCar();
 }
 
+
+void Company::rentCar() {
+
+}
+
+void Company::rentCar()
+
 int Company::searchCar(int ID) {
 	for (int i(0); i < amountCars; i++) {
 		if (cars[i]->getID() == ID) {
@@ -138,4 +146,16 @@ void Company::printAllCars() {
 		cars[i]->print();
 	}
 	return;
+}
+
+void Company::printCustomer(int) {
+
+}
+
+void Company::printAllCustomers() {
+
+}
+
+int Company::searchCustomer(int) {
+
 }
