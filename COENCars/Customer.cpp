@@ -89,9 +89,18 @@ void Customer::printCarsRented() {
 	return;
 }
 
+void Customer::print(){
+	cout << "\nID: " << id << "\nName: " << name << "\nAdsress: " << "\nPhone Number: " << phoneNum;
+}
+
 RegularCustomer::RegularCustomer() : Customer() {}
 
 RegularCustomer::RegularCustomer(string Name, string Address, string PhoneNum) : Customer(Name, Address, PhoneNum) {}
+
+void RegularCustomer::print(){
+	cout << "\nRegular Customer:\n";
+	Customer::print();
+}
 
 void RegularCustomer::printCarsRented() {
 	cout << "\nRegular Customer " << Customer::getName() << " rented cars:\n";
@@ -101,6 +110,11 @@ void RegularCustomer::printCarsRented() {
 CorporateCustomer::CorporateCustomer() : Customer() {}
 
 CorporateCustomer::CorporateCustomer(string Name, string Address, string PhoneNum) : Customer(Name, Address, PhoneNum) {}
+
+void CorporateCustomer::print() {
+	cout << "\nCorporate Customer:\n";
+	Customer::print();
+}
 
 void CorporateCustomer::printCarsRented() {
 	cout << "\nCorporate Customer " << Customer::getName() << " cars rented:\n";

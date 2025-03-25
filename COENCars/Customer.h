@@ -32,6 +32,7 @@ public:
 	int getRentedNum();
 	void addCar(Car*);
 	void removeCar(int);
+	virtual void print();
 	virtual void printCarsRented();
 };
 
@@ -40,11 +41,13 @@ public:
 	RegularCustomer();
 	RegularCustomer(string, string, string);
 	virtual void printCarsRented();
+	virtual void print();
 };
 
 class CorporateCustomer : Customer {
 	CorporateCustomer();
 	CorporateCustomer(string, string, string);
 	virtual void printCarsRented();
+	virtual void print();
 };
 #endif // !CUSTOMER

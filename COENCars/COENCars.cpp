@@ -10,7 +10,7 @@ int main()
     int selection = 0;;
 
     while (selection >= 0) {
-        std::cout << "\n\nPlease choose one of the following.\n1.Manage Cars\n2.Rent Cars\n3.List Cars\n4.Find Specific Car\n5.List Customer Database\n6.Find Specific Customer\n7.Exit Interface\n\nEnter your selection: ";
+        std::cout << "\n\nPlease choose one of the following.\n1.Manage Cars\n2.Rent Car\n3.Return Car\n4.List Cars\n5.Find Specific Car\n6.List Customer Database\n7.Find Specific Customer\n8.Exit Interface\n\nEnter your selection: ";
         std::cin >> selection;
 
         switch (selection) {
@@ -27,25 +27,31 @@ int main()
                 break;
             case 3:
                 continue;
+                break;
             }
-            break;
         case 2:
+            COENCars.rentCar();
             break;
         case 3:
-            COENCars.printAllCars();
+            COENCars.returnCar();
             break;
         case 4:
-            COENCars.printCar();
+            COENCars.printAllCars();
             break;
         case 5:
-            //list customers.
+            COENCars.printCar();
             break;
         case 6:
-            //list customers.
+            COENCars.printAllCustomers();
             break;
         case 7:
+            COENCars.printCustomer();
+            break;
+        case 8:
             selection = -1;
             break;
+        default:
+            //here
         }
 
 

@@ -11,13 +11,13 @@ Date::Date() {
 
 Date::Date(int Day, int Month, int Year) : day(Day), month(Month), year(Year) {}
 
-int Date::getDay() const {
+int Date::getDay() {
 	return day;
 }
-int Date::getMonth() const {
+int Date::getMonth() {
 	return month;
 }
-int Date::getYear() const {
+int Date::getYear() {
 	return year;
 }
 void Date::setDay(int D) {
@@ -35,14 +35,14 @@ string Date::dateStr(){
 }
 
 
-bool Date::operator==(const Date& right) const{
+bool Date::operator==(Date right){
 	if (day == right.getDay() && month == right.getMonth() && year == right.getYear())
 		return true;
 	else
 		return false;
 }
 
-bool Date::operator>(const Date& right) const {
+bool Date::operator>(Date right){
 	if (year > right.getYear())
 		return true;
 	else if (month > right.getMonth() && year >= right.getYear())
@@ -53,7 +53,7 @@ bool Date::operator>(const Date& right) const {
 		return false;
 }
 
-bool Date::operator<(const Date& right) const {
+bool Date::operator<(Date right){
 	if (year < right.getYear())
 		return true;
 	else if (month < right.getMonth() && year <= right.getYear())

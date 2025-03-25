@@ -14,17 +14,17 @@ private:
 public:
 	Date();
 	Date(int, int, int);
-	int getDay() const;
-	int getMonth() const;
-	int getYear() const;
+	int getDay();
+	int getMonth();
+	int getYear();
 	void setDay(int);
 	void setMonth(int);
 	void setYear(int);
 	string dateStr();
 
-	bool operator==(const Date&) const;
-	bool operator>(const Date&) const;
-	bool operator<(const Date&) const;
+	bool operator==(Date);
+	bool operator>(Date);
+	bool operator<(Date);
 };
 
 #endif //DATE

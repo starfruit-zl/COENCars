@@ -19,9 +19,9 @@ private:
 
 	bool isCarAvailable;
 
-	Date takeOut;
+	Date pickUp;
 
-	Date turnIn;
+	Date dropOff;
 
 
 
@@ -38,11 +38,11 @@ public:
 	void setAvailability(bool);
 	bool getAvailability();
 
-	Date* getTakeOut();
-	Date* getTurnIn();
+	Date getPickUp();
+	Date getDropOff();
 
-	void setTakeOut(Date&);
-	void setTurnIn(Date&);
+	void setPickUp(Date);
+	void setDropOff(Date);
 
 	virtual void print();
 };

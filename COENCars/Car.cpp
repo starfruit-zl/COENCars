@@ -38,18 +38,18 @@ bool Car::getAvailability() {
 	return isCarAvailable;
 }
 
-Date* Car::getTakeOut() {
-	return &takeOut;
+Date Car::getPickUp() {
+	return pickUp;
 }
-Date* Car::getTurnIn() {
-	return &turnIn;
+Date Car::getDropOff() {
+	return dropOff;
 }
 
-void Car::setTakeOut(Date& TO) {
-	takeOut = TO;
+void Car::setPickUp(Date TO) {
+	pickUp = TO;
 }
-void Car::setTurnIn(Date& TI) {
-	turnIn = TI;
+void Car::setDropOff(Date TI) {
+	dropOff = TI;
 }
 
 void Car::print() {
