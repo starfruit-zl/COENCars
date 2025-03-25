@@ -21,10 +21,10 @@
     <ClCompile Include="Car.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Company.cpp">
+    <ClCompile Include="Customer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Customer.cpp">
+    <ClCompile Include="Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,10 +32,10 @@
     <ClInclude Include="Car.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Company.h">
+    <ClInclude Include="Customer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Customer.h">
+    <ClInclude Include="Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

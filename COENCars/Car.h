@@ -3,6 +3,7 @@
 using namespace std;
 #include <string>
 #include <iostream>
+#include "Date.h"
 
 #ifndef CAR
 #define CAR
@@ -18,6 +19,12 @@ private:
 
 	bool isCarAvailable;
 
+	Date takeOut;
+
+	Date turnIn;
+
+
+
 public:
 	Car(std::string type1, bool IsCarAvailable);
 	Car();
@@ -30,6 +37,12 @@ public:
 
 	void setAvailability(bool);
 	bool getAvailability();
+
+	Date* getTakeOut();
+	Date* getTurnIn();
+
+	void setTakeOut(Date&);
+	void setTurnIn(Date&);
 
 	virtual void print();
 };
