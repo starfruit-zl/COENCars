@@ -38,6 +38,20 @@ bool Car::getAvailability() {
 	return isCarAvailable;
 }
 
+Date* Car::getTakeOut() {
+	return &takeOut;
+}
+Date* Car::getTurnIn() {
+	return &turnIn;
+}
+
+void Car::setTakeOut(Date& TO) {
+	takeOut = TO;
+}
+void Car::setTurnIn(Date& TI) {
+	turnIn = TI;
+}
+
 void Car::print() {
 	std::cout << "\nID: " << id << "\nType: " << type << "\nAvailability: ";
 	if (isCarAvailable) std::cout << "Yes";
