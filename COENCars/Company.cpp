@@ -13,7 +13,7 @@ int Company::recieveInt(string message) {
 
 string Company::recieveString(string message) {
 	std::cout << '\n' + message + "->";
-	std::cin >> message;
+	std::getline(cin, message);
 
 	return message;
 }
