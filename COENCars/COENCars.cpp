@@ -12,12 +12,13 @@ int main()
     while (selection >= 0) {
         std::cout << "\n\nPlease choose one of the following.\n1.Manage Cars\n2.Rent Car\n3.Return Car\n4.List Cars\n5.Find Specific Car\n6.List Customer Database\n7.Find Specific Customer\n8.Exit Interface\n\nEnter your selection: ";
         std::cin >> selection;
+        std::cin.ignore();
 
         switch (selection) {
         case 1:
-            std::cout << "\nManaging Cars, please choose one of the following.\n1.Add Car\n2.Remove Car\n3.Cancel";
+            std::cout << "\nManaging Cars, please choose one of the following.\n1.Add Car\n2.Remove Car\n3.Cancel\nEnter your selection: ";
             std::cin >> selection;
-
+            std::cin.ignore();
             switch (selection) {
             case 1:
                 COENCars.addCar();
@@ -29,6 +30,7 @@ int main()
                 continue;
                 break;
             }
+            break;
         case 2:
             COENCars.rentCar();
             break;
@@ -51,14 +53,10 @@ int main()
             selection = -1;
             break;
         default:
-            //here
+            std::cout << "\nInvalid Selection! Please try again.";
+            continue;
         }
-
-
-
-
-
-
     }
+
 }
 

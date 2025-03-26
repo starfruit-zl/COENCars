@@ -14,6 +14,7 @@ int Company::recieveInt(string message) {
 }
 
 string Company::recieveString(string message) {
+	
 	std::cout << '\n' + message + "->";
 	std::getline(cin, message);
 
@@ -62,10 +63,18 @@ void Company::addCar() {
 	while (true) { //last input.
 		input = recieveString("Select the class of Car(Standard or Luxury)");
 
-		if (input[0] == 'S' || input[0] == 's') addCar(new StandardCar(inputStore[0], true));
-		else if (input[0] == 'L' || input[0] == 'l') addCar(new LuxuryCar(inputStore[0], true));
+		if (input[0] == 'S' || input[0] == 's') {
+			addCar(new StandardCar(inputStore[0], true));
+			break;
+		}
+		else if (input[0] == 'L' || input[0] == 'l') { 
+			addCar(new LuxuryCar(inputStore[0], true)); 
+			break;
+		}
 		else std::cout << "\nInvalid class, please try again.";
 	}
+
+	return;
 }
 
 void Company::addCar(Car* newCar) {
@@ -76,6 +85,7 @@ void Company::addCar(Car* newCar) {
 
 Car* Company::getCar() {
 	return getCar(recieveInt("Input the Rental Car ID"));
+	cin.ignore();
 }
 
 Car* Company::getCar(int ID) {
@@ -89,6 +99,7 @@ Car* Company::getCar(int ID) {
 
 void Company::removeCar() {
 	removeCar(recieveInt("Input the Rental Car ID"));
+	cin.ignore();
 }
 
 void Company::removeCar(int ID) {
@@ -112,26 +123,29 @@ void Company::rentCar() {
 	printAllCars();
 	while (true) {
 		indexCar = searchCar(recieveInt("Input the ID of the desired car from the list"));
+		cin.ignore();
 		if (index != -1) break;
 		else std::cout << "\nSpecified ID does not appear in list.";
 		continue;
 	}
 	while (true) {
 		stringStore[0] = (recieveString("Input the Renter's name"));
-		index = searchCustomer(recieveString("Input the Renter's name"));
+		index = searchCustomer(stringStore[0]);
 		if (index != -1) rentCar(cars[indexCar],customers[index]);
 		else {
 			std::cout << "\nThe customer of the name " + stringStore[0] + " could not be found. How would you like to proceed?\n1.Register Customer.\n2.Search by ID.\n3.Re-input Customer.\nYour selection: ";
 			std::cin >> selection;
+			std::cin.ignore();
 			switch (selection) {
 			case 1:
 				stringStore.push_back(recieveString("Enter the customer's address"));
 				stringStore.push_back(recieveString("Enter the customer's phone number"));
-				addCustomer(new Customer(stringStore[0], stringStore[1], stringStore[3]));
+				addCustomer(new Customer(stringStore[0], stringStore[1], stringStore[2]));
 				rentCar(cars[indexCar], customers[amountCustomers - 1]);
 				break;
 			case 2:
 				index = searchCustomer(recieveInt("Input the Renter's ID"));
+				std::cin.ignore();
 				if (index == -1) {
 					std::cout << "\nThe customer of the specified ID could not be found.";
 					continue;
@@ -142,6 +156,8 @@ void Company::rentCar() {
 				continue;
 				break;
 			}
+
+			break;
 		}
 	}
 }
@@ -150,8 +166,8 @@ void Company::rentCar(Car* car1, Customer* customer1) {
 	while (true) {
 		std::istringstream date(recieveString("Enter the pickup date for the rental in format DD MM YYYY")); //uses istringstream to be able to process input as seperate components in getline.
 		car1->setPickUp(Date(streamToInt(date), streamToInt(date), streamToInt(date)));
-		std::istringstream date(recieveString("Enter the drop off date for the rental in format DD MM YYYY"));
-		car1->setDropOff(Date(streamToInt(date), streamToInt(date), streamToInt(date)));
+		std::istringstream date1(recieveString("Enter the drop off date for the rental in format DD MM YYYY"));
+		car1->setDropOff(Date(streamToInt(date1), streamToInt(date1), streamToInt(date1)));
 		
 		if (car1->getDropOff() > car1->getPickUp()) {
 			std::cout << "\nError: cannot dropoff car before picked-up";
@@ -180,6 +196,7 @@ void Company::returnCar() {
 
 	while (true) {
 		carID = recieveInt("Select one of the above car ID's");
+		cin.ignore();
 
 		indexCar = searchCar(carID);
 
@@ -218,6 +235,7 @@ void Company::printCar() {
 		return;
 	}
 	printCar((recieveInt("Input the Rental Car ID")));
+	cin.ignore();
 }
 
 void Company::printCustomer() {
@@ -226,6 +244,7 @@ void Company::printCustomer() {
 		return;
 	}
 	printCustomer((recieveInt("Input the Customer ID")));
+	cin.ignore();
 }
 
 void Company::printCar(int ID) {
