@@ -176,8 +176,8 @@ void Company::rentCar(Car* car1, Customer* customer1) {
 		car1->setPickUp(Date(streamToInt(date), streamToInt(date), streamToInt(date)));
 		std::istringstream date1(recieveString("Enter the drop off date for the rental in format DD MM YYYY"));
 		car1->setDropOff(Date(streamToInt(date1), streamToInt(date1), streamToInt(date1)));
-		
-		if (car1->getDropOff() > car1->getPickUp()) {
+
+		if (car1->getDropOff()>(car1->getPickUp())) {
 			std::cout << "\nError: cannot dropoff car before picked-up";
 			continue;
 		}
