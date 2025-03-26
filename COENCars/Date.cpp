@@ -42,7 +42,7 @@ bool Date::operator==(Date right){
 		return false;
 }
 
-bool Date::operator<(Date right){
+bool Date::operator>(Date right){
 	if (year > right.getYear())
 		return true;
 	if (month > right.getMonth() && year == right.getYear())
@@ -53,12 +53,12 @@ bool Date::operator<(Date right){
 		return false;
 }
 
-bool Date::operator>(Date right){
+bool Date::operator<(Date right){
 	if (year < right.getYear())
 		return true;
-	else if (month < right.getMonth() && year == right.getYear())
+	if (month < right.getMonth() && year == right.getYear())
 		return true;
-	else if (day < right.getDay() && month == right.getMonth() && year == right.getYear())
+	if (day < right.getDay() && month == right.getMonth() && year == right.getYear())
 		return true;
 	else
 		return false;

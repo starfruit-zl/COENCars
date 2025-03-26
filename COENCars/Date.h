@@ -23,8 +23,8 @@ public:
 	string dateStr();
 
 	bool operator==(Date);
-	bool operator<(Date);
 	bool operator>(Date);
+	bool operator<(Date);
 };
 
 #endif //DATE
