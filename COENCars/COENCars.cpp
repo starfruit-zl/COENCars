@@ -6,7 +6,7 @@ int main()
 {
     Company COENCars("COENCars");
 
-    std::cout <<"Welcome to the Car Rental Management System for " << COENCars.getName();
+    std::cout <<"Welcome to the Car Rental Management System for " << COENCars.getName() << "\nNotice: We don't take reservations!";
     int selection = 0;;
 
     while (selection >= 0) {

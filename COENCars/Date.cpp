@@ -43,7 +43,7 @@ bool Date::operator==(Date right){
 }
 
 bool Date::operator>(Date right){
-	if (year > right.getYear())
+	if (year > right.getYear()) //if the year is greater, otherwise the year is equal to or less than
 		return true;
 	else if (month > right.getMonth() && year >= right.getYear())
 		return true;

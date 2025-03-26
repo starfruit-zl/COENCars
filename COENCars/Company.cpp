@@ -173,9 +173,11 @@ void Company::rentCar() {
 void Company::rentCar(Car* car1, Customer* customer1) {
 	while (true) {
 		std::istringstream date(recieveString("Enter the pickup date for the rental in format DD MM YYYY")); //uses istringstream to be able to process input as seperate components in getline.
-		car1->setPickUp(Date(streamToInt(date), streamToInt(date), streamToInt(date)));
-		std::istringstream date1(recieveString("Enter the drop off date for the rental in format DD MM YYYY"));
-		car1->setDropOff(Date(streamToInt(date1), streamToInt(date1), streamToInt(date1)));
+		int d1 = streamToInt(date), m1 = streamToInt(date), y1 = streamToInt(date);
+		car1->setPickUp(Date(d1, m1, y1));
+		std::istringstream date1(recieveString("Enter the pickup date for the rental in format DD MM YYYY"));
+		int d2 = streamToInt(date1), m2= streamToInt(date1), y2 = streamToInt(date1);
+		car1->setDropOff(Date(d2, m2, y2));
 		
 		if (car1->getDropOff() > car1->getPickUp()) {
 			std::cout << "\nError: cannot dropoff car before picked-up";
@@ -220,7 +222,7 @@ void Company::returnCar() {
 
 int Company::streamToInt(std::istringstream &date) {
 	string temp;
-	getline(date, temp, ' ');
+	date >> temp;
 	return stoi(temp);
 }
 
