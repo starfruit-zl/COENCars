@@ -55,6 +55,10 @@ int Company::getAmountCustomers() {
 }
 
 void Company::addCar() {
+	if (amountCars >= 1000) {
+		cout << "\nCurrent ammount of cars full. Cannot add anymore cars!";
+		return;
+	}
 	string input;
 	std::vector<string> inputStore;
 
@@ -78,6 +82,10 @@ void Company::addCar() {
 }
 
 void Company::addCar(Car* newCar) {
+	if (amountCars >= 1000) {
+		cout << "\nCurrent ammount of cars full. Cannot add anymore cars!";
+		return;
+	}
 	cars[amountCars++] = newCar;
 	std::cout << "\nThe new car has been registered with ID: " << newCar->getID();
 	return;
@@ -217,6 +225,10 @@ int Company::streamToInt(std::istringstream &date) {
 }
 
 void Company::addCustomer(Customer* newCustomer){
+	if (amountCustomers >= 1000) {
+		cout << "\nCurrent ammount of customers full. Cannot add anymore customers!";
+		return;
+	}
 	customers[amountCustomers++] = newCustomer;
 }
 
