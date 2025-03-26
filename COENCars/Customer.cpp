@@ -90,7 +90,7 @@ void Customer::printCarsRented() {
 }
 
 void Customer::print(){
-	cout << "\nID: " << id << "\nName: " << name << "\nAddress: " << "\nPhone Number: " << phoneNum;
+	cout << "\nID: " << id << "\nName: " << name << "\nAddress: " << address << "\nPhone Number: " << phoneNum;
 }
 
 RegularCustomer::RegularCustomer() : Customer() {}
