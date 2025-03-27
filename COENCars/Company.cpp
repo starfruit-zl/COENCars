@@ -249,7 +249,7 @@ void Company::addCustomer(Customer* newCustomer){
 		cout << "\nCurrent ammount of customers full. Cannot add anymore customers!";
 		return;
 	}
-	customers[amountCustomers++] == newCustomer;
+	customers[amountCustomers++] = newCustomer;
 }
 
 int Company::searchCar(int ID) {
