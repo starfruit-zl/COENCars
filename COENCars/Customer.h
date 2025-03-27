@@ -36,7 +36,7 @@ public:
 	virtual void printCarsRented();
 };
 
-class RegularCustomer : Customer {
+class RegularCustomer : public Customer {
 public:
 	RegularCustomer();
 	RegularCustomer(string, string, string);
@@ -44,7 +44,8 @@ public:
 	virtual void print();
 };
 
-class CorporateCustomer : Customer {
+class CorporateCustomer : public Customer {
+public:
 	CorporateCustomer();
 	CorporateCustomer(string, string, string);
 	virtual void printCarsRented();

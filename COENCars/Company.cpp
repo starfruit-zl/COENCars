@@ -126,20 +126,23 @@ void Company::removeCar(int ID) {
 
 void Company::rentCar() {
 	int index = 0, indexCar = 0, selection = 0;
-	std::vector<std::string> stringStore{ "" };
-	std::cout << "\nList of Cars:";
+	std::vector<std::string> stringStore{ "" };;
 	printAllCars();
 	while (true) {
 		indexCar = searchCar(recieveInt("Input the ID of the desired car from the list"));
 		cin.ignore();
-		if (index != -1) break;
-		else std::cout << "\nSpecified ID does not appear in list.";
+		if (indexCar != -1 )
+			if (cars[indexCar]->getAvailability()) break;
+		else std::cout << "\nSpecified ID does not appear in list, or car is unnavailable.";
 		continue;
 	}
 	while (true) {
 		stringStore[0] = (recieveString("Input the Renter's name"));
 		index = searchCustomer(stringStore[0]);
-		if (index != -1) rentCar(cars[indexCar],customers[index]);
+		if (index != -1) {
+			rentCar(cars[indexCar], customers[index]);
+			break;
+		}
 		else {
 			std::cout << "\nThe customer of the name " + stringStore[0] + " could not be found. How would you like to proceed?\n1.Register Customer.\n2.Search by ID.\n3.Re-input Customer.\nYour selection: ";
 			std::cin >> selection;
@@ -148,7 +151,20 @@ void Company::rentCar() {
 			case 1:
 				stringStore.push_back(recieveString("Enter the customer's address"));
 				stringStore.push_back(recieveString("Enter the customer's phone number"));
-				addCustomer(new Customer(stringStore[0], stringStore[1], stringStore[2]));
+				while (true) { //last input.
+					stringStore.push_back(recieveString("Would you like to open a corporate account with us?(y/n)"));
+
+					if (stringStore[3][0] == 'Y' || stringStore[3][0] == 'y') {
+						addCustomer(new CorporateCustomer(stringStore[0], stringStore[1], stringStore[2]));
+						break;
+					}
+					else if (stringStore[3][0] == 'N' || stringStore[3][0] == 'n') {
+						addCustomer(new RegularCustomer(stringStore[0], stringStore[1], stringStore[2]));
+						break;
+					}
+					else std::cout << "\nInvalid class, please try again.";
+				}
+
 				rentCar(cars[indexCar], customers[amountCustomers - 1]);
 				break;
 			case 2:
@@ -175,11 +191,11 @@ void Company::rentCar(Car* car1, Customer* customer1) {
 		std::istringstream date(recieveString("Enter the pickup date for the rental in format DD MM YYYY")); //uses istringstream to be able to process input as seperate components in getline.
 		int d1 = streamToInt(date), m1 = streamToInt(date), y1 = streamToInt(date);
 		car1->setPickUp(Date(d1, m1, y1));
-		std::istringstream date1(recieveString("Enter the pickup date for the rental in format DD MM YYYY"));
+		std::istringstream date1(recieveString("Enter the drop-off date for the rental in format DD MM YYYY"));
 		int d2 = streamToInt(date1), m2= streamToInt(date1), y2 = streamToInt(date1);
 		car1->setDropOff(Date(d2, m2, y2));
 		
-		if (car1->getDropOff() > car1->getPickUp()) {
+		if (car1->getDropOff() < car1->getPickUp()) {
 			std::cout << "\nError: cannot dropoff car before picked-up";
 			continue;
 		}
@@ -190,6 +206,8 @@ void Company::rentCar(Car* car1, Customer* customer1) {
 	customer1->addCar(car1);
 	
 	std::cout << "\nRental confirmed! " << car1->getType() << " is reserved under the name of " << customer1->getName() <<"\nPickup date: " << car1->getPickUp().dateStr() << "\tDrop off date: " <<car1->getDropOff().dateStr();
+
+	return;
 }
 
 void Company::returnCar() {
@@ -231,7 +249,7 @@ void Company::addCustomer(Customer* newCustomer){
 		cout << "\nCurrent ammount of customers full. Cannot add anymore customers!";
 		return;
 	}
-	customers[amountCustomers++] = newCustomer;
+	customers[amountCustomers++] == newCustomer;
 }
 
 int Company::searchCar(int ID) {
@@ -276,8 +294,8 @@ void Company::printCar(int ID) {
 void Company::printCustomer(int ID) {
 	int it = searchCustomer(ID);
 	if (it != -1) {
-		cars[it]->print();
-
+		customers[it]->print(); //this is meant to print customers not cars
+		customers[it]->printCarsRented();
 		return;
 	}
 
