@@ -232,7 +232,7 @@ void Company::returnCar() {
 		std::cout << "\nCould not find car of specified ID.";
 	}
 
-	customers[index]->removeCar(indexCar);
+	customers[index]->removeCar(carID);
 	cars[indexCar]->setPickUp(Date());
 	cars[indexCar]->setDropOff(Date());
 	cars[indexCar]->setAvailability(true);
